@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Modal from "./Modal.js";
+
 
 function App() {
+ /* const [task, setTask] = React.useState("");
+  const [listTask, setListTask] = React.useState([]);
+  */
+  const [show, setShow] = React.useState(false);
+
+  const openModal = () => setShow(true);
+  const closeModal = () => setShow(false);
+
+/*  function handleSubmit() {
+    const newList = [...listTask, task];
+    setListTask(newList);
+    setTask("");
+  }
+
+  function handleChange(event) {
+    setTask(event.target.value);
+  }
+
+  return (
+    <div>
+      <input placeholder="to-do" onChange={handleChange} value={task} />
+      <button onClick={handleSubmit}>submit</button>
+      <ol>
+        <ul>
+          {listTask.map((element) => (
+            <li>{element}</li>
+          ))}
+        </ul>
+      </ol>
+    </div>
+  );
+*/
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Creating react modal</h1>
+      {!show && <button onClick={openModal}>Show modal</button>}
+      <Modal closeModal={closeModal} show={show} />
     </div>
   );
 }
